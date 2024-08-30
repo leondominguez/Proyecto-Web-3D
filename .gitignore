@@ -22,3 +22,6 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+# .gitignore enviroment variables
+# Ignorar solo el archivo .env dentro de environment
+*.env

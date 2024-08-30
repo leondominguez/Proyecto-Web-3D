@@ -1,0 +1,15 @@
+quiz-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: aqua;
+    padding: 2rem;
+}
+.quiz-header{
+    font-size: 2rem;
+}
+.quizp-progress{
+    font-size: larger;
+}
