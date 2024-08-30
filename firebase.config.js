@@ -3,8 +3,9 @@ import { initializeApp } from 'firebase/app';
 import { getAuth } from 'firebase/auth';
 import { getFirestore } from 'firebase/firestore';
 
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
+// Add the necessary SDK imports
+import 'firebase/auth';
+import 'firebase/firestore';
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
@@ -15,13 +16,6 @@ const firebaseConfig = {
   messagingSenderId: import.meta.env.VITE_MESSAGING_SENDER_ID,
   appId: import.meta.env.VITE_APP_ID
 };
-
-// Initialize Firebase
-/*const app = initializeApp(firebaseConfig);
-const auth = getAuth(app);
-const db = getFirestore(app);
-export {auth, db}*/
-
 
 
 // Initialize Firebase
@@ -34,3 +28,9 @@ export const auth = getAuth(app);
 export const db = getFirestore(app);
 
 console.log(firebaseConfig);
+
+// Initialize Firebase
+/*const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+const db = getFirestore(app);
+export {auth, db}*/
