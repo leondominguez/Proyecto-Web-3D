@@ -1,1 +1,1 @@
-Se debe agregar el archivo .env en esta carpeta ./enviroment
+Se debe agregar el archivo .env en esta carpeta ./enviromentff
