@@ -1,15 +1,47 @@
-.container-login{
+
+.login-wrapper {
+    min-height: 100vh; /* Asegura que ocupe al menos el 100% de la altura de la pantalla */
+    width: 100vw; /* Asegura que ocupe todo el ancho de la pantalla */
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
+    justify-content: center; /* Centrar horizontalmente */
+    align-items: center; /* Centrar verticalmente */
+    flex-direction: column; /* Colocar elementos en columna */
+    background-color: #a6d7c8; /* Fondo de tu preferencia */
+    overflow: hidden; /* Evita el scroll innecesario */
+    margin: 0; /* Elimina cualquier margen interno */
+    padding: 0; /* Elimina cualquier padding interno */
 }
-.welcome-text{
-    font-size: x-large;
-    color: 0#333;
+
+
+button {
+    background-color: #007BFF; /* Fondo azul */
+    border: none;
+    color: white;
+    padding: 12px 24px;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 8px; /* Bordes redondeados */
+    box-shadow: 0px 4px 6px rgb(46, 169, 218); /* Sombra ligera */
+    transition: background-color 0.3s ease-in-out;
+    margin-top: 10px;
 }
-.loading-text{
-    font-size: medium;
-    color: a #666; 
+
+
+
+.logo {
+    width: 100px; /* Ajusta el ancho de la imagen según sea necesario */
+    height: auto; /* Mantén la proporción de la imagen */
+    margin-bottom: 20px; /* Espacio debajo de la imagen */
+}
+
+button:hover {
+    background-color: #0056b3; /* Color más oscuro al pasar el mouse */
+}
+
+.button-logout {
+    background-color: #dc3545; /* Fondo rojo */
+}
+
+.button-logout:hover {
+    background-color: #c82333; /* Fondo rojo más oscuro */
 }

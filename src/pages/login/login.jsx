@@ -3,6 +3,7 @@ import { useCallback, useEffect } from "react";
 import useAuthStore from "../../stores/use-auth-store";
 import { useNavigate } from "react-router-dom";
 import UserDao from "../../daos/UserDAO";
+import logo from "../../assets/images/logo.png";
 
 const Login = () => {
   const { user, observeAuthState, loginGoogleWithPopUp, logout, loading } = useAuthStore();
@@ -37,7 +38,8 @@ const Login = () => {
   }
 
   return (
-    <div className="container-login">
+    <div className="login-wrapper">
+      <img src={logo} alt="Logo" className="logo" />
       {user ? (
         <>
           <p className="welcome-text">Bienvenido, {user.displayName}</p>
@@ -48,6 +50,8 @@ const Login = () => {
       )}
     </div>
   );
+  
+  
 }
 
 export default Login;
