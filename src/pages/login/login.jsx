@@ -28,10 +28,10 @@ const Login = () => {
         .then((exists) => {
           if (exists) {
             console.log("creado?:", exists);
-            setModalMessage("Ya tienes una cuenta. Serás redirigido al sitio de quiz.");
+            setModalMessage("Ya tienes una cuenta.<br />Serás redirigido al sitio de quiz.");
             alert("Ya tienes una cuenta. Serás redirigido al sitio de quiz.");
           } else {
-            setModalMessage("Cuenta creada exitosamente. Serás redirigido al sitio de quiz.");
+            setModalMessage("Cuenta creada exitosamente.\n Serás redirigido al sitio de quiz.");
             alert("Cuenta creada exitosamente. Serás redirigido al sitio de quiz.");
           }
           console.log("el mensaje de modal es:", modalMessage);
