@@ -3,10 +3,8 @@ import { createRoot } from "react-dom/client";
 import "./index.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';
-
-
+import { AuthProvider } from './context/authContext.jsx'; // Importa el contexto de autenticación
 import Login from "./pages/login/login.jsx";
-
 import Quiz from "./pages/quiz/Quiz.jsx";
 
 const router = createBrowserRouter([
@@ -15,12 +13,15 @@ const router = createBrowserRouter([
     element: <Login />,
   },
   {
-    path: "/Quiz",
+    path: "/quiz",
     element: <Quiz />,
   },
 ]);
+
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <RouterProvider router={router} />
+    <AuthProvider>
+      <RouterProvider router={router} />
+    </AuthProvider>
   </StrictMode>
 );

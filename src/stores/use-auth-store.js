@@ -1,46 +1,56 @@
-import { create } from "zustand";
-import {
-  GoogleAuthProvider,
-  onAuthStateChanged,
-  signInWithPopup,
-  signOut,
-} from "firebase/auth";
-
+import { useState, useEffect } from 'react';
+import { GoogleAuthProvider, onAuthStateChanged, signInWithPopup, signOut } from "firebase/auth";
 import { auth } from "../../firebase.config";
 
-const provider = new GoogleAuthProvider();
+const googleAuthProvider = new GoogleAuthProvider();
 
-const useAuthStore = create((set) => ({
-  user: null,
-  loading: true,
+const useAuthStore = () => {
+  const [user, setUser] = useState(null);
+  const [loading, setLoading] = useState(true);
 
-  loginGoogleWithPopUp: async () => {
-    await signInWithPopup(auth, provider)
-    .catch((error) => {
-      console.log(error);
-    });
-  },
-
-  logout: async () => {
-    await signOut(auth)
-      .then(() => {
-        set({ user: null });
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  },
-
-  observeAuthState: () => {
-    set({ loading: true });
-    onAuthStateChanged(auth, (user) => {
+  const observeAuthState = () => {
+    return onAuthStateChanged(auth, (user) => {
       if (user) {
-        set({ user, loading: false });
+        setUser(user);
       } else {
-        set({ user: null, loading: false });
+        setUser(null);
       }
+      setLoading(false);
     });
-  },
-}));
+  };
+
+  const loginGoogleWithPopUp = async () => {
+    setLoading(true);
+    try {
+      await signInWithPopup(auth, googleAuthProvider);
+    } catch (error) {
+      console.error('Error during login', error);
+      setLoading(false);
+    }
+  };
+
+  const logout = async () => {
+    setLoading(true);
+    try {
+      await signOut(auth);
+    } catch (error) {
+      console.error('Error during logout', error);
+      setLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    const unsubscribe = observeAuthState();
+    return () => unsubscribe();
+  }, []);
+
+  return {
+    user,
+    observeAuthState,
+    loginGoogleWithPopUp,
+    logout,
+    loading,
+  };
+};
 
 export default useAuthStore;
