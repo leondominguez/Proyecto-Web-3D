@@ -1,10 +1,10 @@
-import "./login.css";
+import "./Login.css";
 import { useCallback, useEffect, useState } from "react";
 import useAuthStore from "../../stores/use-auth-store";
 import { useNavigate } from "react-router-dom";
 import UserDao from "../../daos/UserDAO";
 import logo from "../../assets/images/logo.png";
-import Modal from "../../components/modal";
+import Modal from "../../components/global-components/Modal";
 
 const Login = () => {
   const { user, observeAuthState, loginGoogleWithPopUp, logout, loading } = useAuthStore();
@@ -28,11 +28,11 @@ const Login = () => {
         .then((exists) => {
           if (exists) {
             console.log("creado?:", exists);
-            setModalMessage("Ya tienes una cuenta.<br />Serás redirigido al sitio de quiz.");
-            alert("Ya tienes una cuenta. Serás redirigido al sitio de quiz.");
+            setModalMessage("Ya tienes una cuenta.<br />Serás redirigido al Home.");
+            //alert("Ya tienes una cuenta. Serás redirigido al sitio de quiz.");
           } else {
-            setModalMessage("Cuenta creada exitosamente.\n Serás redirigido al sitio de quiz.");
-            alert("Cuenta creada exitosamente. Serás redirigido al sitio de quiz.");
+            setModalMessage("Cuenta creada exitosamente.<br />Serás redirigido Home");
+            //alert("Cuenta creada exitosamente. Serás redirigido al sitio de quiz.");
           }
           console.log("el mensaje de modal es:", modalMessage);
           setShowModal(true);
@@ -53,7 +53,7 @@ const Login = () => {
 
   const handleCloseModal = () => {
     setShowModal(false);
-    navigate("/quiz");
+    navigate("/Home");
   };
 
   if (loading) {
