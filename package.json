@@ -2,7 +2,7 @@
   "name": "proyecto-web-3d",
   "description": "Proyecto de Vite y React con Firebase",
   "private": true,
-  "version": "0.1.2",
+  "version": "0.1.5",
   "type": "module",
   "scripts": {
     "dev": "vite",

@@ -101,6 +101,9 @@ canvas {
 .header-container {
   text-align: center;
   margin-top: 20px;
+  color: #0f00b4;
+  font-weight: bold;
+  font-size: 2rem;
   
 }
 
