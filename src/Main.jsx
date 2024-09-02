@@ -6,7 +6,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { AuthProvider } from './pages/login/login-context/AuthContext.jsx'; // Importa el contexto de autenticación
 import Quiz from "./pages/logical-components/Quiz.jsx";
 import Home from "./pages/Home/Home.jsx";
-import Login from "./pages/login/Login.jsx";// Importa el componente de inicio de sesión
+import Login from "./pages/login/Login";// Importa el componente de inicio de sesión
 
 
 const router = createBrowserRouter([
