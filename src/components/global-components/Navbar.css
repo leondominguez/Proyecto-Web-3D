@@ -1,0 +1,62 @@
+/* Navbar.css */
+.navbar {
+  width: 200px; /* Reducir el ancho de la barra de navegación */
+  height: 100vh;
+  position: fixed;
+  left: 0;
+  top: 0;
+  background-color: #1a47a8;
+  color: #fff;
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.navList {
+  list-style-type: none;
+  padding: 0;
+  color: #ffffff;
+  font-weight: bold;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.user-photo {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 10px;
+  background-color: #fff; /* Asegurarse de que la imagen del usuario se vea */
+}
+
+.logout-button {
+  background-color: #c70505;
+  color: #ffffff;
+  border: none;
+  padding: 4px 5px; /* Hacer el botón más pequeño */
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 0.9rem; /* Reducir el tamaño de la fuente */
+}
+
+.logout-button:hover {
+  background-color: #a32525;
+}
+
+.nameTeam {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+.configurationLink {
+  color: #ffffff;
+  text-decoration: none;
+  margin-bottom: 10px;
+  list-style-type: none;
+
+}
