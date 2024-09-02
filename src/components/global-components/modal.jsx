@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
-import './modal.css';
-import useAuthStore from "../../stores/use-auth-store";
+import './Modal.css';
+
 
 const Modal = ({ show, onClose, title, message }) => {
 
