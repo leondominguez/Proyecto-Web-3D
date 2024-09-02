@@ -1,54 +1,25 @@
-import { addDoc, collection, updateDoc } from "firebase/firestore";
-//import { collection } from "firebase/firestore";
-import { db } from "../../firebase.config";
+import { db } from '../../firebase.config';
+import { doc, setDoc, getDoc } from 'firebase/firestore';
 
+const checkAndCreateUser = async (user) => {
+  try {
+    const userDocRef = doc(db, 'users', user.email); // Usa el email como ID del documento
+    const userDoc = await getDoc(userDocRef);
 
-class UserDAO{
-    constructor(){
-        this.collectionRef =(db,"users");
+    if (userDoc.exists()) {
+      // Si el documento existe, el usuario ya está creado
+      console.log('User already exists:', user.email);
+      return true; // Retorna true para indicar que el usuario ya existe
+    } else {
+      // Si el documento no existe, crea uno nuevo
+      await setDoc(userDocRef, user);
+      console.log('User created:', user);
+      return false; // Retorna false para indicar que se creó el usuario
     }
+  } catch (error) {
+    console.error('Error checking or creating user:', error);
+    throw error; // Lanza el error para manejarlo en el componente
+  }
+};
 
-    async getUserById(id){
-        await getDoc(doc(  this.collectionRef, id))
-        .then((userDoc)=>{
-            if (userDoc.exist()){
-                return {succes: true, data: userDoc.data()}
-            }else{
-                return {succes: false, data: null}
-            }
-        })
-    .catch((error)=>{
-        console.log("Eroor getting document",error);
-    });
-    }
-
-    async createUser(userData){
-        await addDoc(this.collectionRef,userData)
-        .then((docRef)=>{
-            console.log("Document written wiht ID: ",docRef.id);
-        })
-        .catch((error)=>{
-            console.error("Error Adding Document: ",error);
-        })
-    }
-
-    async updateUser(id, userData){
-        const userRef = doc(this.collectionRef, id);
-        await updateDoc(userRef, userData)
-        .then(console.log("Document succesfully update!"))
-        .catch((error)=>{
-            console.error("Error updating document: ", error);
-        }); 
-    }
-
-    async deleteUser(id){
-        await deteleteDoc(doc(this.collectionRef, id))
-        .the(console.log("Document succesfully deleted!"))
-        .catch((error)=>{
-            console.error("Error Removing document", error)
-        });
-    }
-
-}
-
-export default new UserDAO();
+export default { checkAndCreateUser };

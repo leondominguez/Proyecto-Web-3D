@@ -1,0 +1,13 @@
+.settings-container {
+    padding: 20px;
+    margin-top: 60px; /* Ajusta este valor según la altura de tu navbar */
+  }
+  
+  .settings-container h1 {
+    font-size: 2em;
+    margin-bottom: 20px;
+  }
+  
+  .settings-container p {
+    font-size: 1.2em;
+  }
