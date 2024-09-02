@@ -1,10 +1,10 @@
 import "./Login.css";
 import { useCallback, useEffect, useState } from "react";
-import useAuthStore from "../../stores/use-auth-store";
+import useAuthStore from "../../stores/use-auth-store.js";
 import { useNavigate } from "react-router-dom";
-import UserDao from "../../daos/UserDAO";
+import UserDao from "../../daos/UserDAO.js";
 import logo from "../../assets/images/logo.png";
-import Modal from "../../components/global-components/Modal";
+import Modal from "../../components/global-components/Modal.jsx";
 
 const Login = () => {
   const { user, observeAuthState, loginGoogleWithPopUp, logout, loading } = useAuthStore();
