@@ -4,7 +4,7 @@ import useAuthStore from "../../stores/use-auth-store";
 import { useNavigate } from "react-router-dom";
 import UserDao from "../../daos/UserDAO";
 import logo from "../../assets/images/logo.png";
-import Modal from "../../components/global-components/Modal";
+import Modal from "../../components/global-components/Modal.jsx";
 
 const Login = () => {
   const { user, observeAuthState, loginGoogleWithPopUp, logout, loading } = useAuthStore();
