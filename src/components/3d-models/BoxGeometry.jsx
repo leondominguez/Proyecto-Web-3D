@@ -1,8 +1,8 @@
 // SphereGeometry.jsx
 import React, { useRef } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
-import { FlyControls } from '@react-three/drei';
-import { MeshPhysicalMaterial } from 'three';
+import { FlyControls, MeshDistortMaterial } from '@react-three/drei';
+import { MeshLambertMaterial, MeshNormalMaterial } from 'three';
 
 const CossenoEffect = ({ children }) => {
   const meshRef = useRef();
@@ -26,7 +26,7 @@ const SphereGeometry = () => {
           <CossenoEffect>
             <mesh>
               <sphereGeometry args={[1, 32, 32]} />
-              <MeshPhysicalMaterial color="orange" />
+              <MeshLambertMaterial color="black" />
             </mesh>
           </CossenoEffect>
           <FlyControls />
